@@ -1,5 +1,7 @@
 import os
-from langchain.vectorstores.neo4j_vector import Neo4jVector
+# from langchain.vectorstores.neo4j_vector import Neo4jVector
+from langchain_community.vectorstores import Neo4jVector
+
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
@@ -13,7 +15,8 @@ from langchain.prompts import (
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
 
 neo4j_vector_index = Neo4jVector.from_existing_graph(
-    embedding=OpenAIEmbeddings(),
+    # embedding=OpenAIEmbeddings()
+    embedding = OpenAIEmbeddings(proxies=None),
     url=os.getenv("NEO4J_URI"),
     username=os.getenv("NEO4J_USERNAME"),
     password=os.getenv("NEO4J_PASSWORD"),
