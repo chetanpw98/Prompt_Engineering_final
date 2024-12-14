@@ -2,6 +2,11 @@ from fastapi import FastAPI
 from src.agents.hospital_rag_agent import hospital_rag_agent_executor
 from src.models.hospital_rag_query import HospitalQueryInput, HospitalQueryOutput
 from src.utils.async_utils import async_retry
+import sys
+import os
+
+# Add the parent directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
 app = FastAPI(
     title="Hospital Chatbot",
