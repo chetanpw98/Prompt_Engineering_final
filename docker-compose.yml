@@ -15,7 +15,7 @@ services:
     depends_on:
       - hospital_neo4j_etl
     ports:
-      - '8001:8001'
+      - '8000:8000'
 
   chatbot_frontend:
     build:

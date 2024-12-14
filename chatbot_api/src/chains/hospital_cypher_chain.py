@@ -31,8 +31,8 @@ graph = Neo4jGraph(
 graph.refresh_schema()
 
 cypher_example_index = Neo4jVector.from_existing_graph(
-    # embedding=OpenAIEmbeddings()
-    embedding = OpenAIEmbeddings(proxies=None),
+    embedding=OpenAIEmbeddings(),
+    # embedding = OpenAIEmbeddings(proxies=None),
     url=NEO4J_URI,
     username=NEO4J_USERNAME,
     password=NEO4J_PASSWORD,
